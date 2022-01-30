@@ -77,6 +77,8 @@ void peep(){
     scanf("%d",&location);//2nd
     //40
     //index = //
+    //printf("\n%d",stack[index]);
+
 
 }
 
