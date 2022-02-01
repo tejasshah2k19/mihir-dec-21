@@ -122,6 +122,71 @@ void display(){
 
 }
 
+void deleteEnd(){
+
+    //10 20 30->NULL
+    //head
+    //      p
+
+        struct node *p;
+        p = head;
+
+        while( p->next != last){
+            p = p->next;
+        }
+        p->next = NULL;
+
+        printf("\n%d removed",last->data);
+        free(last);
+        last = p ;
+
+
+}
+
+void deleteBeg()
+{
+
+    struct node *p;
+    p = head;
+    head =head->next;
+    printf("\n%d removed",p->data);
+    free(p);
+
+}
+void deleteAny(){
+
+    int num,flag = 0 ;
+    struct node *p,*q;
+    printf("\nEnter number that you want to delete!!");
+    scanf("%d",&num);
+    p = head;
+    q = head;
+    while(p != NULL){
+
+        if(p->data == num ){
+            //delete
+            flag =1 ;
+            break;
+        }
+        p = p->next;
+    }
+    if(flag == 1){
+                while(q -> next != p){
+                    q = q->next;
+                }
+        q->next = p->next;
+        free(p);
+        printf("\n%d removed",num);
+    }else{
+        printf("\nNumber not found");
+    }
+
+
+
+
+}
+
+
 void search(){
 
 }
@@ -139,7 +204,7 @@ int main(){
 
 
         while(1){
-            printf("\n0 for exit\n1 for add\n2 for display\n3 for search\n4 for insert at beginning \n5 for insert Any\nenter choice");
+            printf("\n0 for exit\n1 for add\n2 for display\n3 for search\n4 for insert at beginning \n5 for insert Any\n6 for delete at end\n7 for delete at beg\n8 for delete any \nenter choice");
             scanf("%d",&choice);
 
             switch(choice){
@@ -160,6 +225,14 @@ int main(){
                         insertAtBeg(); break;
                     case 4+1:
                         insertAny();break;
+                    case 6:
+                        deleteEnd();
+                        break;
+                    case 7:
+                        deleteBeg();
+                        break;
+                    case 8:
+                        deleteAny();break;
             }
         }
 
