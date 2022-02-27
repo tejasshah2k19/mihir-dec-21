@@ -75,7 +75,7 @@ void insertAny(){
      }else{
 
             printf("Enter number ");
-            scanf("%d",&num);
+            scanf("%d",&num);//35
 
             tmp = (struct node*)malloc(sizeof(struct node));
             tmp->data= num;
