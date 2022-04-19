@@ -2,6 +2,8 @@
 #define N 50
 
 int graph[N][N];//50*50
+int count[N];
+
 
 int main(){
 
@@ -32,6 +34,18 @@ int main(){
         }
     }
 
+    for(i=0;i<v;i++){//0 1 2 3
+        for(j=0;j<v;j++){//3,0 3,1 3,2  3,3
+            if(graph[i][j] == 1){
+                count[i] = count[i]+1;//0+1 => 1
+            }
+        }
+    }
+
+
+    for(i=0;i<v;i++){
+        printf("\n%d : %d",i,count[i]);
+    }
 
     return 0 ;
 
